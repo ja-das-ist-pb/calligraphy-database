@@ -1,15 +1,26 @@
 body {
-    background-color: #f2ebde;
+  background-color: #f2ebde;
 }
 
 #mainmenu {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.mmpart{
-    width: 10px;
-    height: 4px;
-    background-color: black;
+.mmpart {
+  width: 10px;
+  height: 4px;
+  background-color: black;
+}
+
+#intro {
+  width: 70%;
+  border: 2px dashed red;
+}
+
+.author {
+  width:;
+  height:;
+  background-color: #ffffff;
 }
