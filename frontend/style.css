@@ -20,7 +20,13 @@ body {
 }
 
 .author {
-  width:;
-  height:;
+  /* width:;
+  height:; */
   background-color: #ffffff;
+}
+
+#intro {
+  display: flex;
+  flex-direction: row;
+  
 }

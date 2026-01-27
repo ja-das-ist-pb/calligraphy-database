@@ -1,0 +1,8 @@
+#database
+*.db
+
+#image
+image/
+
+#python
+__pycache__/
