@@ -28,5 +28,11 @@ body {
 #intro {
   display: flex;
   flex-direction: row;
-  
+  justify-content: space-around;
+}
+
+.author-img {
+  width: 100%;
+  height: auto;
+  /* border-radius: 50% 50% 50% 50%; */
 }

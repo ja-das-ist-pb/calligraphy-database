@@ -1,37 +1,149 @@
-<!DOCTYPE html>
-<html  lang = zh-Hant>
-    <head>
-        <title>書法字查詢</title>
-        <meta name="author" content="曾子恆與陳葆謙">
-        <meta name="description" content="This page is for searching several calligraphic types of the Chinese character(s)">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <!-- 這邊之後要放icon -->
-    </head>
-    <body>
-        <button id="mainmenu" type="button">
-            <span class="mmpart"></span>
-            <span class="mmpart"></span>
-            <span class="mmpart"></span>
-            <!-- mm stands for main menu -->
-        </button>
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <title>書法字查詢</title>
+    <meta name="author" content="曾子恆與陳葆謙" />
+    <meta
+      name="description"
+      content="This page is for searching several calligraphic types of the Chinese character(s)"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- 這邊之後要放icon -->
+  </head>
+  <body>
+    <!-- side bar code -->
+    <aside id="side-bar">
+      <button id="mainmenu" type="button">
+        <span class="mmpart"></span>
+        <span class="mmpart"></span>
+        <span class="mmpart"></span>
+        <!-- mm stands for main menu -->
+      </button>
+      <nav>
+        <ul>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href=""></a>書法作品賞析</li>
+          <li><a href=""></a>書法入門教學</li>
+          <li><a href="AboutUs.html">開發者介紹</a></li>
+          <li><a href=""></a>網站計數器</li>
+        </ul>
+      </nav>
+    </aside>
 
-        <!-- side bar code -->
+    <input type="text" placeholder="請搜尋文字" class="inputbox" />
 
-        <div id="initial-page">
-            <div id="logo">
+    <section>
+      <button id="author-button">
+        <span>
+          <!-- calligrapher icon -->
+        </span>
+        <span>書法家</span>
+      </button>
+      <label
+        ><input
+          type="checkbox"
+          name="author"
+          value="王羲之"
+          class="author"
+        />王羲之</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="author"
+          value="米罘"
+          class="author"
+        />米罘</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="author"
+          value="蘇軾"
+          class="author"
+        />蘇軾</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="author"
+          value="李斯"
+          class="author"
+        />李斯</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="author"
+          value="曾子恆"
+          class="author"
+        />曾子恆</label
+      >
 
-            </div>
-            <input type="text" placeholder="請搜尋文字" class="inputbox">
-        </div>
+      <button id="font-button">
+        <span>
+          <!-- font icon -->
+        </span>
+        <span>字體</span>
+      </button>
+      <label
+        ><input
+          type="checkbox"
+          name="font"
+          value="楷書"
+          class="font"
+        />楷書</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="font"
+          value="行書"
+          class="font"
+        />行書</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="font"
+          value="隸書"
+          class="font"
+        />隸書</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="font"
+          value="小篆"
+          class="font"
+        />小篆</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="font"
+          value="草書"
+          class="font"
+        />草書</label
+      >
+      <label
+        ><input
+          type="checkbox"
+          name="font"
+          value="硬筆書法"
+          class="font"
+        />硬筆書法</label
+      >
+    </section>
 
-        <div id="after-search">
-            <input type="text" class="inputbox">
-        </div>
+    <div id="initial-page">
+      <div id="logo"></div>
+    </div>
 
-        <div id="close-up">
-            <input type="text" class="inputbox">
-        </div>
-    </body>
+    <div id="after-search"></div>
+
+    <div id="close-up"></div>
+  </body>
 </html>
