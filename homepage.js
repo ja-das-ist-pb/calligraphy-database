@@ -24,7 +24,7 @@ function getChar(){
 function getChecked(checkboxes){
     let arr1=[];
     for(let i = 0; i<checkboxes.length; i++){
-        if(checkboxes[i].checked()){
+        if(checkboxes[i].checked){
             arr1.push(checkboxes[i].value);
         }
     }
@@ -42,6 +42,7 @@ function collectData(){
 //來搜吧
 function search(){
     const requestData = collectData();
+    afterSearch.innerHTML = "搜尋中，請稍後......"
     fetch("http://127.0.0.1:8000/search-calligraphy", 
         {
         method: "POST", 
@@ -51,17 +52,32 @@ function search(){
         body: JSON.stringify(requestData)    // JS 物件轉 JSON
         }
     )
-    .then((response)=>{
-        printIt(response)
+    .then(function(response){
+        return response.json();
     })
-    .catch((error)=>{
-        afterSearch.innerHTML = "搜尋失敗!"
-   })
+    .then(function(data){
+        printIt(data);
+    })
+    .catch(function(){
+        afterSearch.innerHTML = "搜尋失敗";
+    });
 }
 
 //顯示結果
-function printIt(){
-    
+function printIt(data){
+    afterSearch.innerHTML = "";
+    if(!data || data.length===0){
+        afterSearch.innerHTML = "無搜尋結果";
+        return;
+    }
+    for(let i = 0; i<data.length; i++){
+        const photo = data[i];
+        const div = document.createElement("div");
+        div.className = "photo";
+        div.innerHTML ="<img src='" + photo.image + "'>" +"<p>" + photo.char + "｜" + photo.author + "｜" + photo.font + "</p>";
+        afterSearch.appendChild(div);
+        //放大功能之後做
+    }
 }
 
 //放大特寫
