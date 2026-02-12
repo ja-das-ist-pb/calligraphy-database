@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <!-- 這邊之後要放icon -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
   </head>
   <body>
     <!-- side bar code -->
@@ -21,7 +22,7 @@
         <span class="mmpart"></span>
         <!-- mm stands for main menu -->
       </button>
-      <nav>
+      <nav id="menu">
         <ul>
           <li><a href="index.html">首頁</a></li>
           <li><a href=""></a>書法作品賞析</li>
@@ -34,108 +35,116 @@
 
     <input type="text" placeholder="請搜尋文字" class="inputbox" />
 
-    <section>
-      <button id="author-button">
-        <span>
-          <!-- calligrapher icon -->
-        </span>
-        <span>書法家</span>
+    <section id="filter">
+      <button id="filter-button" class="icon-btn">
+        <i class="fi fi-rr-filter"></i>
+        <span>篩選</span>
       </button>
-      <label
-        ><input
-          type="checkbox"
-          name="author"
-          value="王羲之"
-          class="author"
-        />王羲之</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="author"
-          value="米罘"
-          class="author"
-        />米罘</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="author"
-          value="蘇軾"
-          class="author"
-        />蘇軾</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="author"
-          value="李斯"
-          class="author"
-        />李斯</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="author"
-          value="曾子恆"
-          class="author"
-        />曾子恆</label
-      >
 
-      <button id="font-button">
-        <span>
-          <!-- font icon -->
-        </span>
-        <span>字體</span>
-      </button>
-      <label
-        ><input
-          type="checkbox"
-          name="font"
-          value="楷書"
-          class="font"
-        />楷書</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="font"
-          value="行書"
-          class="font"
-        />行書</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="font"
-          value="隸書"
-          class="font"
-        />隸書</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="font"
-          value="小篆"
-          class="font"
-        />小篆</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="font"
-          value="草書"
-          class="font"
-        />草書</label
-      >
-      <label
-        ><input
-          type="checkbox"
-          name="font"
-          value="硬筆書法"
-          class="font"
-        />硬筆書法</label
-      >
+      <div id="options">
+        <button id="author-button" class="icon-btn">
+          <i class="fi fi-rr-users"></i>
+          <span>書法家</span>
+        </button>
+        <div id="authors" class="option-list">
+          <label
+            ><input
+              type="checkbox"
+              name="author"
+              value="王羲之"
+              class="author"
+            />王羲之</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="author"
+              value="米罘"
+              class="author"
+            />米罘</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="author"
+              value="蘇軾"
+              class="author"
+            />蘇軾</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="author"
+              value="李斯"
+              class="author"
+            />李斯</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="author"
+              value="曾子恆"
+              class="author"
+            />曾子恆</label
+          >
+        </div>
+
+        <button id="font-button" class="icon-btn">
+          <i class="fi fi-rr-text-size"></i>
+          <span>字體</span>
+        </button>
+
+        <div id="fonts" class="option-list">
+          <label
+            ><input
+              type="checkbox"
+              name="font"
+              value="楷書"
+              class="font"
+            />楷書</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="font"
+              value="行書"
+              class="font"
+            />行書</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="font"
+              value="隸書"
+              class="font"
+            />隸書</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="font"
+              value="小篆"
+              class="font"
+            />小篆</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="font"
+              value="草書"
+              class="font"
+            />草書</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="font"
+              value="硬筆書法"
+              class="font"
+            />硬筆書法</label
+          >
+        </div>
+      </div>
     </section>
 
     <div id="initial-page">
@@ -145,5 +154,8 @@
     <div id="after-search"></div>
 
     <div id="close-up"></div>
+
+    <script src="homepage.js"></script>
+    <script src="jsstyle.js"></script>
   </body>
 </html>

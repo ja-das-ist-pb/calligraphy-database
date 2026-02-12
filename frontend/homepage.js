@@ -33,7 +33,6 @@ function getChecked(checkboxes){
 
 function collectData(){
     return {
-        type: "calligraphy",
         char: getChar(),
         author: getChecked(authorCheckbox),
         font: getChecked(fontCheckbox)

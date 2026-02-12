@@ -2,16 +2,197 @@ body {
   background-color: #f2ebde;
 }
 
-#mainmenu {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+#side-bar {
+  position: fixed;
+  background-color: #c7beb4;
+  padding: 1%;
+  margin: 0;
+  border-radius: 10px;
 }
 
+#mainmenu {
+  background: none;
+  border-color: #f2ebde;
+  border: none;
+  padding: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+#mainmenu:hover,
+#filter-button:hover,
+#author-button:hover,
+#font-button:hover {
+  cursor:pointer;
+}
 .mmpart {
-  width: 10px;
-  height: 4px;
+  width: 1.5rem;
+  height: 0.2rem;
   background-color: black;
+  border-radius: 100px;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0%;
+}
+#menu ul li {
+  line-height: 2.5;
+  text-align: center;
+}
+#menu ul li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background-color: #c7beb4;
+  width: 100%;
+  box-sizing:border-box;
+  border-radius: 10px;
+}
+#menu ul li a:hover {
+  background-color: #89827b;
+  transform: scale(1.05);
+}
+
+/* Filter 容器 */
+#filter {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50.4%;
+  left: 77%;
+  background-color: #ffa629;
+  border-radius: 20px;
+  padding: 0.6%;
+  max-width: 5.6rem;
+}
+
+/* 按鈕共用基礎樣式 */
+#filter-button,
+#author-button,
+#font-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.3s ease;
+  height: 2rem;
+  background-color: #ffa629;
+  border-radius: 999rem;
+  border: none;
+}
+
+/* filter 初始文字隱藏 */
+#filter-button span {
+  opacity: 0;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+/* filter 初始寬度 */
+#filter-button {
+  width: 2rem;
+}
+
+/* filter 展開文字 */
+#filter-button.expanded {
+  width: 4.5rem;
+}
+
+#filter-button.expanded span {
+  opacity: 1;
+}
+
+/* author & font 按鈕初始隱藏 */
+#author-button {
+  display: none;          /* 完全隱藏 */
+  width: 4.5rem;          /* icon + 文字固定 */
+  margin-top: 0.5rem;
+}
+
+#font-button {
+  display: none;          /* 完全隱藏 */
+  width: 5.6rem;          /* icon + 文字固定 */
+  margin-top: 0.5rem;
+}
+
+/* icon + 文字始終可見 */
+#author-button span,
+#font-button span {
+  opacity: 1;
+  white-space: nowrap;
+}
+
+/* icon 尺寸 */
+#filter-button i,
+#author-button i,
+#font-button i {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+/* 選項列表初始隱藏 */
+#authors,
+#fonts {
+  display: none;
+  flex-direction: column;
+  margin-left: 0rem;
+  margin-top: 0.3rem;
+}
+
+/* 展開選項 */
+#authors.show,
+#fonts.show {
+  display: flex;
+}
+
+/* hover 效果 */
+#filter-button:hover,
+#author-button:hover,
+#font-button:hover {
+  background-color: #e6a100;
+}
+
+input[type="checkbox"] {
+  accent-color:#e6a100;
+}
+.option-list label, 
+.option-list input {
+  cursor:pointer;
+}
+
+
+
+
+.inputbox {
+  width: 60%;
+  height: 8%;
+  font-size: 1.5rem;
+  background-color: #c7beb4;
+  color: black;
+  border: none;
+  border-radius: 40px;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  padding-left: 2.5%;
+}
+.inputbox::placeholder {
+  border: none;
+  color: black;
+  text-align: center;
+}
+.inputbox:focus {
+  outline: none;
+  border: none;
+  padding: none;
+}
+.inputbox:focus::placeholder {
+  opacity: 0;
 }
 
 #intro {
@@ -35,4 +216,11 @@ body {
   width: 100%;
   height: auto;
   /* border-radius: 50% 50% 50% 50%; */
+}
+
+.hidden {
+  display: none;
+}
+#side-bar.side-bar-hidden {
+  background-color: #f2ebde;
 }
