@@ -81,13 +81,23 @@ function printIt(data){
         div.className = "photo";
         div.innerHTML ="<img src='" + photo.image + "'>" +"<p>" + photo.char + "｜" + photo.author + "｜" + photo.font + "</p>";
         afterSearch.appendChild(div);
-        //放大功能之後做
+        //放大功能
+        div.addEventListener("click", function(){
+            zoomIn(photo);
+        });
     }
 }
 
 //放大特寫
-function zoomIn(picture){
-    
+function zoomIn(photo){
+    closeUp.innerHTML ="<div class='close-up-bgd'></div>" +"<div class='close-up-content'>" +"<img src='" + photo.image + "'>" +"<h3>" + photo.char + "</h3>" +
+    "<p>" + photo.author + "｜" + photo.font + "</p>" + "</div>";
+    const bgd = closeUp.querySelector(".close-up-bgd");
+    bgd.addEventListener("click", closeIt);
+}
+//關
+function closeIt(){
+    closeUp.innerHTML = "";
 }
 
 //按ENTER查
