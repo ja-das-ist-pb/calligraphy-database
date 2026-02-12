@@ -64,7 +64,19 @@ function search(){
 }
 
 //顯示結果
+const initial_pg = document.getElementById("initial-page");
+const afterSearch_pg = document.getElementById("after-search");
+const closeUp_pg = document.getElementById("close-up");
 function printIt(data){
+// 如果你有看到這一航 可能需要同時隱藏
+// in style.css, u can use hidden class to hide the element, and toggle it in jsstyle.js when u click the menu button.
+// 我打了一點 但是我失敗了
+// 對了 there are some mistakes in canva, and i edited it, 要記得加word 1 and word2
+
+    initial_pg.classList.add("hidden");
+
+
+
     afterSearch.innerHTML = "";
     if(!data || data.length===0){
         afterSearch.innerHTML = "無搜尋結果";
@@ -77,6 +89,10 @@ function printIt(data){
         div.innerHTML ="<img src='" + photo.image + "'>" +"<p>" + photo.char + "｜" + photo.author + "｜" + photo.font + "</p>";
         afterSearch.appendChild(div);
         //放大功能之後做
+
+        
+        
+        
     }
 }
 

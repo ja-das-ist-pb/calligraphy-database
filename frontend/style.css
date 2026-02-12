@@ -55,16 +55,24 @@ body {
   transform: scale(1.05);
 }
 
+#initial-page {
+  display: block;
+}
+
+#initial-page.hidden {
+  display: none;
+}
+
 /* Filter 容器 */
 #filter {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 50.4%;
-  left: 77%;
+  top: 51.9%;
+  left: 76.7%;
   background-color: #ffa629;
   border-radius: 20px;
-  padding: 0.6%;
+  /* padding: 0.6%; */
   max-width: 5.6rem;
 }
 
@@ -82,6 +90,7 @@ body {
   background-color: #ffa629;
   border-radius: 999rem;
   border: none;
+  text-align: center;
 }
 
 /* filter 初始文字隱藏 */
@@ -99,7 +108,7 @@ body {
 
 /* filter 展開文字 */
 #filter-button.expanded {
-  width: 4.5rem;
+  width: 5.6rem;
 }
 
 #filter-button.expanded span {
@@ -109,7 +118,7 @@ body {
 /* author & font 按鈕初始隱藏 */
 #author-button {
   display: none;          /* 完全隱藏 */
-  width: 4.5rem;          /* icon + 文字固定 */
+  width: 5.6rem;          /* icon + 文字固定 */
   margin-top: 0.5rem;
 }
 
@@ -216,6 +225,14 @@ input[type="checkbox"] {
   width: 100%;
   height: auto;
   /* border-radius: 50% 50% 50% 50%; */
+}
+
+#initial-page {
+  display: block;
+}
+
+#initial-page.hidden {
+  display: none !important;
 }
 
 .hidden {
