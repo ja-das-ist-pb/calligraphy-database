@@ -33,6 +33,7 @@ function getChecked(checkboxes){
 
 function collectData(){
     return {
+        type: "calligraphy",
         char: getChar(),
         author: getChecked(authorCheckbox),
         font: getChecked(fontCheckbox)
@@ -41,6 +42,11 @@ function collectData(){
 
 //來搜吧
 function search(){
+    initialPage.style.display = "none";
+    //有輸入才開始搜尋中
+    if(searchBox.value.trim() === ""){
+        return;
+    }
     const requestData = collectData();
     afterSearch.innerHTML = "搜尋中，請稍後......"
     fetch("http://127.0.0.1:8000/search-calligraphy", 
@@ -64,19 +70,7 @@ function search(){
 }
 
 //顯示結果
-const initial_pg = document.getElementById("initial-page");
-const afterSearch_pg = document.getElementById("after-search");
-const closeUp_pg = document.getElementById("close-up");
 function printIt(data){
-// 如果你有看到這一航 可能需要同時隱藏
-// in style.css, u can use hidden class to hide the element, and toggle it in jsstyle.js when u click the menu button.
-// 我打了一點 但是我失敗了
-// 對了 there are some mistakes in canva, and i edited it, 要記得加word 1 and word2
-
-    initial_pg.classList.add("hidden");
-
-
-
     afterSearch.innerHTML = "";
     if(!data || data.length===0){
         afterSearch.innerHTML = "無搜尋結果";
@@ -88,17 +82,23 @@ function printIt(data){
         div.className = "photo";
         div.innerHTML ="<img src='" + photo.image + "'>" +"<p>" + photo.char + "｜" + photo.author + "｜" + photo.font + "</p>";
         afterSearch.appendChild(div);
-        //放大功能之後做
-
-        
-        
-        
+        //放大功能
+        div.addEventListener("click", function(){
+            zoomIn(photo);
+        });
     }
 }
 
 //放大特寫
-function zoomIn(picture){
-    
+function zoomIn(photo){
+    closeUp.innerHTML ="<div class='close-up-bgd'></div>" +"<div class='close-up-content'>" +"<img src='" + photo.image + "'>" +"<h3>" + photo.char + "</h3>" +
+    "<p>" + photo.author + "｜" + photo.font + "</p>" + "</div>";
+    const bgd = closeUp.querySelector(".close-up-bgd");
+    bgd.addEventListener("click", closeIt);
+}
+//關
+function closeIt(){
+    closeUp.innerHTML = "";
 }
 
 //按ENTER查
@@ -107,11 +107,3 @@ searchBox.addEventListener("keydown", function(e){
         search();
     }
 })
-
-//改變勾選作者字體
-for(let i = 0; i<authorCheckbox.length; i++){
-    authorCheckbox[i].addEventListener("change", search);
-}
-for(let i = 0; i<fontCheckbox.length; i++){
-    fontCheckbox[i].addEventListener("change", search);
-}
