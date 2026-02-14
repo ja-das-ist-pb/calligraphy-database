@@ -63,6 +63,16 @@ body {
   display: none;
 }
 
+#logo {
+  width: 50%;
+  height: 30%;
+  object-fit: cover;
+  border-radius: 30px;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+}
+
 /* Filter 容器 */
 #filter {
   display: flex;
