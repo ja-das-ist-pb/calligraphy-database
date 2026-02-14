@@ -23,7 +23,7 @@ body {
 #filter-button:hover,
 #author-button:hover,
 #font-button:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 .mmpart {
   width: 1.5rem;
@@ -47,7 +47,7 @@ body {
   color: black;
   background-color: #c7beb4;
   width: 100%;
-  box-sizing:border-box;
+  box-sizing: border-box;
   border-radius: 10px;
 }
 #menu ul li a:hover {
@@ -117,14 +117,14 @@ body {
 
 /* author & font 按鈕初始隱藏 */
 #author-button {
-  display: none;          /* 完全隱藏 */
-  width: 5.6rem;          /* icon + 文字固定 */
+  display: none; /* 完全隱藏 */
+  width: 5.6rem; /* icon + 文字固定 */
   margin-top: 0.5rem;
 }
 
 #font-button {
-  display: none;          /* 完全隱藏 */
-  width: 5.6rem;          /* icon + 文字固定 */
+  display: none; /* 完全隱藏 */
+  width: 5.6rem; /* icon + 文字固定 */
   margin-top: 0.5rem;
 }
 
@@ -167,15 +167,12 @@ body {
 }
 
 input[type="checkbox"] {
-  accent-color:#e6a100;
+  accent-color: #e6a100;
 }
-.option-list label, 
+.option-list label,
 .option-list input {
-  cursor:pointer;
+  cursor: pointer;
 }
-
-
-
 
 .inputbox {
   width: 60%;
@@ -184,7 +181,7 @@ input[type="checkbox"] {
   background-color: #c7beb4;
   color: black;
   border: none;
-  border-radius: 40px;
+  border-radius: 999rem;
   position: absolute;
   top: 50%;
   left: 20%;

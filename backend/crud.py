@@ -10,7 +10,7 @@ def search_calligraphy(
     conn = database.get_db()
 
     exe = """
-    SELECT character, font, author
+    SELECT *
     FROM calligraphy
     WHERE character = ?
     """

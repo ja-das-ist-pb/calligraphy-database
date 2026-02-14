@@ -26,6 +26,11 @@ class creation (BaseModel):
 
 app = FastAPI()
 
+#test api
+@app.get('/') 
+def root():
+    return {"message" : "backend working"}
+
 @app.post('/search-calligraphy')
 def search(request : SearchRequest):
     data = request.model_dump()
@@ -45,13 +50,14 @@ def search(request : SearchRequest):
             return_data[char] = []
 
             if rows:
-
+                
                 for row in rows:
                     char_data = character(
-                        author = row[2], 
-                        font = row[3], 
-                        path = row[4], 
-                        creation = row[7]).model_dump()
+                        author = row["author"], 
+                        font = row["font"], 
+                        path = row["path"], 
+                        creation = row["creation"]
+                        ).model_dump()
                     return_data[char].append(char_data)
 
     
