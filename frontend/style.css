@@ -81,7 +81,160 @@ body {
   height: 8%;
 }
 
+/* #filter-sys input[type="radio"],
+#options input[type="radio"] {
+  display: none;
+}
+
+.text, .option-list label, .option-list input {
+  cursor: pointer;
+} */
+
+/* #filter {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -83%;
+  left: 96.75%;
+  background-color: #ffa629;
+  border-radius: 2rem;
+
+  /* max-width:4%;
+  aspect-ratio: 1/1;
+  transition: all 0.2 ease;
+  overflow:hidden; */
+/* }  */
+
+/* ===== Filter 外框 ===== */
+
 #filter {
+  position: relative;
+  background-color: #ffa629;
+  border-radius: 1rem;
+  overflow: hidden;
+  top:-85%;
+  left: 96.75%;
+
+  width: 2.8rem;
+  transition: width 0.25s ease;
+}
+
+/* hover → 橫向展開 */
+#filter:hover {
+  width: 7rem;
+}
+
+/* ===== Header ===== */
+
+#filter-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#filter-header i {
+  font-size: 1.3rem;
+}
+
+/* 篩選文字預設隱藏 */
+.filter-text {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* hover 時顯示文字 */
+#filter:hover .filter-text {
+  opacity: 1;
+}
+
+/* ===== Body（縱向展開區） ===== */
+
+#filter-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 0.6rem;
+}
+
+/* click 後加 .filter-open → 展開 */
+#filter.filter-open #filter-body {
+  max-height: 30rem; /* 給足夠高度即可 */
+  padding-bottom: 0.6rem;
+}
+
+/* ===== Accordion 區塊 ===== */
+
+.accordion-item {
+  margin-top: 0.4rem;
+  border-radius: 1rem;
+}
+
+/* 隱藏 radio */
+.accordion-item input[type="radio"] {
+  display: none;
+}
+
+/* 標題列 */
+.acc-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.6rem;
+  border-radius: 999rem;
+  transition: background-color 0.15s ease;
+}
+
+.acc-title:hover {
+  background-color: #e59525;
+}
+
+/* ===== option-list 手風琴內容 ===== */
+
+.option-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: 0.6rem;
+}
+
+/* radio checked → 展開 */
+.accordion-item input[type="radio"]:checked + .acc-title + .option-list {
+  max-height: 20rem;
+  margin-top: 0.3rem;
+}
+
+/* ===== checkbox 樣式 ===== */
+
+.option-list label {
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.option-list input[type="checkbox"] {
+  margin-right: 0.3rem;
+  cursor: pointer;
+}
+
+/* ===== 視覺細節優化 ===== */
+
+#filter,
+.acc-title,
+.option-list {
+  box-sizing: border-box;
+}
+
+
+
+
+
+/* #filter {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -93,7 +246,6 @@ body {
   height: 4%;
 
   transition: width 0.2 ease;
-  /* overflow: hidden; */
 }
 
 #filter.expand {
@@ -171,7 +323,7 @@ body {
 }
 #fonts.expand {
   height: auto;
-}
+} */
 
 /* Filter 容器 */
 /* #filter {
