@@ -62,7 +62,7 @@ function search(){
         word123.appendChild(div);
     }
 
-    const requestData = collectData();
+    /*const requestData = collectData();
     afterSearch.innerHTML = "搜尋中，請稍後......"
     fetch("http://127.0.0.1:8000/search-calligraphy", 
         {
@@ -81,7 +81,15 @@ function search(){
     })
     .catch(function(){
         afterSearch.innerHTML = "搜尋失敗";
-    });
+    });*/
+    printIt([
+        {
+            image: "u004E8C_Henry_hardpen.jpg",
+            char: "一",
+            author: "Henry",
+            font: "硬筆書法"
+        }
+    ]);
 }
 
 //顯示結果
@@ -91,31 +99,51 @@ function printIt(data){
         afterSearch.innerHTML = "無搜尋結果";
         return;
     }
-    const chars = searchBox.value.trim().split("");
+    
     for(let i = 0; i<data.length; i++){
         const photo = data[i];
         const div = document.createElement("div");
         div.className = "photo";
-        div.innerHTML ="<img src='" + photo.image + "'>" + "<p>" + photo.char + "</p>" +
-        "<p>" + photo.author + "</p>" +
-        "<p>" + photo.font + "</p>";
+        const img = document.createElement("img");
+        img.src = photo.image;
+        img.className = "myimg";
+
+        img.style.width = "180px";
+        img.style.cursor = "pointer";
+
+        const info = document.createElement("div");
+        info.innerHTML =
+            "<p>" + photo.char + "</p>" +
+            "<p>" + photo.author + "</p>" +
+            "<p>" + photo.font + "</p>";
+
+        div.appendChild(img);
+        div.appendChild(info);
+
         afterSearch.appendChild(div);
-        //放大功能
-        div.addEventListener("click", function(){
-            zoomIn(data);
+
+        // 🔥 正確的放大功能
+        img.addEventListener("click", function(){
+            zoomIn(photo);
         });
     }
 }
 
 //放大特寫
 function zoomIn(photo){
-    closeUp.innerHTML ="<div class='close-up-bgd'></div>" +"<div class='close-up-content'>" +"<img src='" + photo.image + "'>" +"<h3>" + photo.char + "</h3>" +
-    "<p>" + photo.author + "｜" + photo.font + "</p>" + "</div>";
+    closeUp.style.display = "block";
+    closeUp.innerHTML ="<div class='close-up-bgd'></div>" +
+    "<div class='close-up-content'>" +
+    "<img src='" + photo.image + "'>" +
+    "<h3>" + photo.char + "</h3>" +
+    "<p>" + photo.author + "｜" + photo.font + "</p>" +
+    "</div>";
     const bgd = closeUp.querySelector(".close-up-bgd");
     bgd.addEventListener("click", closeIt);
 }
 //關
 function closeIt(){
+    closeUp.style.display = "none";
     closeUp.innerHTML = "";
 }
 
