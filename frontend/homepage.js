@@ -46,6 +46,10 @@ function collectData() {
 //來搜吧
 function search() {
   initialPage.style.display = "none";
+  // pull input-sys up
+  const inputsys = document.getElementById("input-sys");
+  inputsys.classList.add("search");
+
   //有輸入才開始搜尋中
   if (searchBox.value.trim() === "") {
     return;
@@ -94,10 +98,6 @@ function search() {
 
 //顯示結果
 function printIt(data) {
-  // pull input-sys up
-  const inputsys = document.getElementById("input-sys");
-  inputsys.classList.add("search");
-
   afterSearch.innerHTML = "";
   if (!data || data.length === 0) {
     afterSearch.innerHTML = "無搜尋結果";
