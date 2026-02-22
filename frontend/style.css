@@ -4,6 +4,10 @@ body {
 
 #side-bar {
   position: fixed;
+  top: 2.5%;
+  left: 2.5%;
+  z-index: 10;
+
   background-color: #c7beb4;
   padding: 1%;
   margin: 0;
@@ -265,25 +269,36 @@ body {
 
 #intro {
   width: 70%;
-  border: 2px dashed red;
-}
-
-.author {
-  /* width:;
-  height:; */
-  background-color: #ffffff;
-}
-
-#intro {
+  height: auto;
+  /* border: 2px dashed red; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  position: absolute;
+  top: 7%;
+  left: 15%;
+
+  gap: 4%;
+}
+
+.author {
+  width: 48%;
+  height: auto;
+  background-color: #ffffff;
+  padding: 2.5%;
+  border-radius: 2rem;
 }
 
 .author-img {
   width: 100%;
   height: auto;
-  /* border-radius: 50% 50% 50% 50%; */
+}
+
+.author-name {
+  font-size: 1.3rem;
+  margin-bottom: 2%;
+  text-align: center;
 }
 
 #initial-page {
