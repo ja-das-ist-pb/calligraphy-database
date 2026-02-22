@@ -40,12 +40,11 @@
       </nav>
     </aside>
 
-    <!-- inpur system -->
+    <!-- input system -->
     <div id="input-sys">
       <input type="text" placeholder="請搜尋文字" class="inputbox" />
 
       <section id="filter">
-
         <!-- ===== Filter Header：hover 橫向展開 ===== -->
         <div id="filter-header">
           <i class="fi fi-rr-filter"></i>
@@ -54,11 +53,9 @@
 
         <!-- ===== Filter Body：click 後縱向展開 ===== -->
         <div id="filter-body">
-
           <!-- ===== Author Accordion ===== -->
           <div class="accordion-item">
-
-            <input type="radio" name="filter-accordion" id="author-acc">
+            <input type="radio" name="filter-accordion" id="author-acc" />
 
             <label for="author-acc" class="acc-title">
               <i class="fi fi-rr-users"></i>
@@ -66,19 +63,35 @@
             </label>
 
             <div class="option-list">
-              <label><input type="checkbox" name="author" value="王羲之">王羲之</label>
-              <label><input type="checkbox" name="author" value="米罘">米罘</label>
-              <label><input type="checkbox" name="author" value="蘇軾">蘇軾</label>
-              <label><input type="checkbox" name="author" value="李斯">李斯</label>
-              <label><input type="checkbox" name="author" value="曾子恆">曾子恆</label>
+              <label
+                ><input
+                  type="checkbox"
+                  name="author"
+                  value="王羲之"
+                />王羲之</label
+              >
+              <label
+                ><input type="checkbox" name="author" value="米罘" />米罘</label
+              >
+              <label
+                ><input type="checkbox" name="author" value="蘇軾" />蘇軾</label
+              >
+              <label
+                ><input type="checkbox" name="author" value="李斯" />李斯</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="author"
+                  value="曾子恆"
+                />曾子恆</label
+              >
             </div>
-
           </div>
 
           <!-- ===== Font Accordion ===== -->
           <div class="accordion-item">
-
-            <input type="radio" name="filter-accordion" id="font-acc">
+            <input type="radio" name="filter-accordion" id="font-acc" />
 
             <label for="font-acc" class="acc-title">
               <i class="fi fi-rr-text-size"></i>
@@ -86,247 +99,32 @@
             </label>
 
             <div class="option-list">
-              <label><input type="checkbox" name="font" value="楷書">楷書</label>
-              <label><input type="checkbox" name="font" value="行書">行書</label>
-              <label><input type="checkbox" name="font" value="隸書">隸書</label>
-              <label><input type="checkbox" name="font" value="小篆">小篆</label>
-              <label><input type="checkbox" name="font" value="草書">草書</label>
-              <label><input type="checkbox" name="font" value="硬筆書法">硬筆書法</label>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- <section id="filter">
-        <button id="filter-button" class="icon-btn">
-          <i class="fi fi-rr-filter"></i>
-          <span>篩選</span>
-        </button>
-
-        <div id="options">
-          <button id="author-button" class="icon-btn">
-            <i class="fi fi-rr-users"></i>
-            <span>書法家</span>
-          </button>
-          <div id="authors" class="option-list">
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="王羲之"
-                class="author"
-              />王羲之</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="米罘"
-                class="author"
-              />米罘</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="蘇軾"
-                class="author"
-              />蘇軾</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="李斯"
-                class="author"
-              />李斯</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="曾子恆"
-                class="author"
-              />曾子恆</label
-            >
-          </div>
-
-          <button id="font-button" class="icon-btn">
-            <i class="fi fi-rr-text-size"></i>
-            <span>字體</span>
-          </button>
-
-          <div id="fonts" class="option-list">
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="楷書"
-                class="font"
-              />楷書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="行書"
-                class="font"
-              />行書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="隸書"
-                class="font"
-              />隸書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="小篆"
-                class="font"
-              />小篆</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="草書"
-                class="font"
-              />草書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="硬筆書法"
-                class="font"
-              />硬筆書法</label
-            >
-          </div>
-        </div>
-      </section> -->
-
-      <!-- <section id="filter">
-        <div id="filter-sys">
-          <input type="radio" id="filter-btn">
-          <label for="filter-btn" class="text">
-            <i class="fi fi-rr-filter"></i>
-            篩選
-          </label>
-        </div>
-
-        <div id="options">
-          <input type="radio" id="author-btn">
-          <label for="author-btn" class="text">
-            <i class="fi fi-rr-users"></i>
-            書法家
-          </label>
-          <div class="option-list">
-            <label
+              <label
+                ><input type="checkbox" name="font" value="楷書" />楷書</label
+              >
+              <label
+                ><input type="checkbox" name="font" value="行書" />行書</label
+              >
+              <label
+                ><input type="checkbox" name="font" value="隸書" />隸書</label
+              >
+              <label
+                ><input type="checkbox" name="font" value="小篆" />小篆</label
+              >
+              <label
+                ><input type="checkbox" name="font" value="草書" />草書</label
+              >
+              <label
                 ><input
                   type="checkbox"
-                  name="author"
-                  value="王羲之"
-                  class="author"
-                />王羲之</label
+                  name="font"
+                  value="硬筆書法"
+                />硬筆書法</label
               >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="米罘"
-                class="author"
-              />米罘</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="蘇軾"
-                class="author"
-              />蘇軾</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="李斯"
-                class="author"
-              />李斯</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="author"
-                value="曾子恆"
-                class="author"
-              />曾子恆</label
-            >
-          </div>
-
-          <input type="radio" id="font-btn">
-          <label for="font-btn" class="text">
-            <i class="fi fi-rr-text-size"></i>
-            字體
-          </label>
-          <div class="option-list">
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="楷書"
-                class="font"
-              />楷書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="行書"
-                class="font"
-              />行書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="隸書"
-                class="font"
-              />隸書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="小篆"
-                class="font"
-              />小篆</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="草書"
-                class="font"
-              />草書</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="font"
-                value="硬筆書法"
-                class="font"
-              />硬筆書法</label
-            >
+            </div>
           </div>
         </div>
-        
-      </section> -->
+      </section>
     </div>
 
     <!-- initial page -->
@@ -334,10 +132,12 @@
       <img src="../figure/cally_logo.jpeg" alt="logo" id="logo" />
     </div>
 
-    <div id="word123"></div>
-    <div id="after-search"></div>
-
-    <div id="close-up"></div>
+    <!-- <div id="word123"></div> -->
+    <div id="after-search">
+      <div id="word-con"></div>
+      <div id="photo-con"></div>
+      <div id="close-up"></div>
+    </div>
 
     <script src="homepage.js"></script>
     <script src="jsstyle.js"></script>
