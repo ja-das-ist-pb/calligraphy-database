@@ -84,7 +84,7 @@ body {
 
 #input-sys.search {
   top: 2.5%;
-  position: sticky;
+  position: fixed;
 }
 
 #filter {
