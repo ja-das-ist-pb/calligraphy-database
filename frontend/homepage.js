@@ -17,8 +17,19 @@ const word123 = document.getElementById("word123");
 function getChar() {
   let arr = [];
   const word = searchBox.value.trim();
-  if (word !== "") {
-    arr.push(word);
+  //去重複
+  for (let i = 0; i < word.length; i++) {
+    let a = word[i];
+    let repeated = false;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] === a) {
+        repeated = true;
+        break;
+      }
+    }
+    if (!repeated) {
+      arr.push(a);
+    }
   }
   return arr;
 }
@@ -86,61 +97,70 @@ function search() {
     .catch(function(){
         afterSearch.innerHTML = "搜尋失敗";
     });*/
-  printIt([
-    {
+  printIt({
+  "一": [
+      {
       image: "u004E8C_Henry_hardpen.jpg",
       char: "一",
       author: "Henry",
       font: "硬筆書法",
-    },
-  ]);
+      }
+    ]
+  });
 }
 
 //顯示結果
+//有點亂:(  整理一下: data:整個物件、myKeys:搜尋的字、char:單個字、photos:這個字的所有圖片陣列、photo:圖片資料
 function printIt(data) {
   afterSearch.innerHTML = "";
-  if (!data || data.length === 0) {
+  if (!data || Object.keys(data).length === 0) {
     afterSearch.innerHTML = "無搜尋結果";
     return;
   }
+  //取得所有的鍵，就是搜尋的字
+  const myKeys = Object.keys(data);
 
-  for (let i = 0; i < data.length; i++) {
-    const photo = data[i];
-    const div = document.createElement("div");
-    div.className = "photo";
-    const img = document.createElement("img");
-    img.src = photo.image;
-    img.className = "photos";
+  for (let i = 0; i < myKeys.length; i++) {
+    let char = myKeys[i];//梅
+    let photos = data[char];//梅的所有照片
+    for (let j = 0; j < photos.length; j++) {
+      const photo = photos[j];
+      const div = document.createElement("div");
+      div.className = "photo";
+      const img = document.createElement("img");
+      img.src = photo.image;
+      img.className = "photos";
 
-    // img.style.width = "180px";
-    // img.style.cursor = "pointer";
-    // 這些我從css幫改
+      // img.style.width = "180px";
+      // img.style.cursor = "pointer";
+      // 這些我從css幫改
 
-    const info = document.createElement("div");
-    info.innerHTML =
-      "<p>" +
-      photo.char +
-      "</p>" +
-      "<p>" +
-      photo.author +
-      "</p>" +
-      "<p>" +
-      photo.font +
-      "</p>";
+      const info = document.createElement("div");
+      info.innerHTML =
+        "<p>" +
+        photo.char +
+        "</p>" +
+        "<p>" +
+        photo.author +
+        "</p>" +
+        "<p>" +
+        photo.font +
+        "</p>";
 
-    div.appendChild(img);
-    div.appendChild(info);
+      div.appendChild(img);
+      div.appendChild(info);
 
-    afterSearch.appendChild(div);
+      afterSearch.appendChild(div);
 
-    // 為什麼print it 需要 info?
-    // 我覺得可以把胎放到zoom in
-    // id 可以叫做 info
+      // 為什麼print it 需要 info?
+      // 我覺得可以把胎放到zoom in
+      // id 可以叫做 info
 
-    // 🔥 正確的放大功能
-    img.addEventListener("click", function () {
-      zoomIn(photo);
-    });
+      // 🔥 正確的放大功能
+      img.addEventListener("click", function () {
+        zoomIn(photo);
+      });
+    }
   }
 }
 
