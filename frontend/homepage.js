@@ -98,14 +98,14 @@ function search() {
         afterSearch.innerHTML = "搜尋失敗";
     });*/
   printIt({
-  "一": [
+    一: [
       {
-      image: "u004E8C_Henry_hardpen.jpg",
-      char: "一",
-      author: "Henry",
-      font: "硬筆書法",
-      }
-    ]
+        image: "u004E8C_Henry_hardpen.jpg",
+        char: "一",
+        author: "Henry",
+        font: "硬筆書法",
+      },
+    ],
   });
 }
 
@@ -121,19 +121,19 @@ function printIt(data) {
   const myKeys = Object.keys(data);
 
   for (let i = 0; i < myKeys.length; i++) {
-    let char = myKeys[i];//梅
-    let photos = data[char];//梅的所有照片
+    let char = myKeys[i]; //梅
+    let photos = data[char]; //梅的所有照片
     for (let j = 0; j < photos.length; j++) {
       const photo = photos[j];
+
       const div = document.createElement("div");
-      div.className = "photo";
+      // this should be : documemt.getElementByID("after-search");
+
+      div.className = "photo"; // 6要記得看canva上的class name 啊！！！！
+
       const img = document.createElement("img");
       img.src = photo.image;
       img.className = "photos";
-
-      // img.style.width = "180px";
-      // img.style.cursor = "pointer";
-      // 這些我從css幫改
 
       const info = document.createElement("div");
       info.innerHTML =
@@ -178,7 +178,8 @@ function zoomIn(photo) {
     "</h3>" +
     "<p>" +
     photo.author +
-    "｜" +
+    "</p>" +
+    "<p>" +
     photo.font +
     "</p>" +
     "</div>";
