@@ -99,12 +99,12 @@ function search() {
     });*/
   printIt({
     一: [
-      {
-        image: "u004E8C_Henry_hardpen.jpg",
-        char: "一",
-        author: "Henry",
-        font: "硬筆書法",
-      },
+       {
+         author: "Henry",
+         font: "hardpen",
+         path: "image/u004E00_Henry_hardpen.jpg",
+         creation: null
+       }
     ],
   });
 }
