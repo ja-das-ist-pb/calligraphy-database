@@ -3,6 +3,7 @@ calligrapher = {
     "米芾" : "MiFu",
     "蘇軾" : "SuShi",
     "李斯" : "LiSi",
+    "鄧石如" : "DengShiru",
     "曾子恆" : "Henry",
     "陳葆謙" : "Paul"
 }
