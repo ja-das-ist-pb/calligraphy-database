@@ -67,14 +67,14 @@ function search() {
   }
 
   //word1,2,3...
-  word123.innerHTML = "";
+  //word123.innerHTML = "";
   const words = searchBox.value.trim();
   const chars = words.split("");
   for (let i = 0; i < chars.length; i++) {
     const div = document.createElement("div");
     div.className = "word" + (i + 1);
     div.innerHTML = chars[i];
-    word123.appendChild(div);
+    //word123.appendChild(div);
   }
 
   /*const requestData = collectData();
@@ -112,7 +112,8 @@ function search() {
 //顯示結果
 //有點亂:(  整理一下: data:整個物件、myKeys:搜尋的字、char:單個字、photos:這個字的所有圖片陣列、photo:圖片資料
 function printIt(data) {
-  afterSearch.innerHTML = "";
+  const photoCon = document.getElementById("photo-con");
+  photoCon.innerHTML = "";
   if (!data || Object.keys(data).length === 0) {
     afterSearch.innerHTML = "無搜尋結果";
     return;
@@ -127,39 +128,33 @@ function printIt(data) {
       const photo = photos[j];
 
       const div = document.createElement("div");
-      // this should be : documemt.getElementByID("after-search");
-
-      div.className = "photo"; // 6要記得看canva上的class name 啊！！！！
+      div.className = "photo";
 
       const img = document.createElement("img");
-      img.src = photo.image;
+      img.src = photo.path;
       img.className = "photos";
 
       const info = document.createElement("div");
       info.innerHTML =
-        "<p>" +
-        photo.char +
-        "</p>" +
-        "<p>" +
-        photo.author +
-        "</p>" +
-        "<p>" +
-        photo.font +
-        "</p>";
+        "<p>" + char + "</p>" +
+        "<p>" + photo.author + "</p>" +
+        "<p>" + photo.font + "</p>";
 
       div.appendChild(img);
       div.appendChild(info);
 
-      afterSearch.appendChild(div);
+      photoCon.appendChild(div);
 
       // 為什麼print it 需要 info?
       // 我覺得可以把胎放到zoom in
       // id 可以叫做 info
 
-      // 🔥 正確的放大功能
+      
       img.addEventListener("click", function () {
         zoomIn(photo);
       });
+      console.log(data);
+      console.log(photo.path);
     }
   }
 }
@@ -171,7 +166,7 @@ function zoomIn(photo) {
     "<div class='close-up-bgd'></div>" +
     "<div class='close-up-content'>" +
     "<img src='" +
-    photo.image +
+    photo.path +
     "'>" +
     "<h3>" +
     photo.char +
