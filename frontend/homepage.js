@@ -1,15 +1,3 @@
-// //查詢框區
-// const searchBox = document.querySelector(".inputbox");
-
-// //作者字體checkbox
-// const authorCheckbox = document.querySelectorAll(".author");
-// const fontCheckbox = document.querySelectorAll(".font");
-
-// //顯示區
-// const initialPage = document.getElementById("initial-page");
-// const afterSearch = document.getElementById("after-search");
-// const closeUp = document.getElementById("close-up");
-
 document.addEventListener("DOMContentLoaded", function () {
   const searchBox = document.querySelector(".inputbox");
   const authorCheckbox = document.querySelectorAll(".author");
@@ -113,16 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(err);
         afterSearch.innerHTML = "搜尋失敗";
       });
-    // printIt({
-    //   一: [
-    //      {
-    //        author: "Henry",
-    //        font: "hardpen",
-    //        path: "image/u004E00_Henry_hardpen.jpg",
-    //        creation: null
-    //      }
-    //   ],
-    // });
   }
 
   //顯示結果
@@ -130,13 +108,22 @@ document.addEventListener("DOMContentLoaded", function () {
   function printIt(data) {
     const photoCon = document.getElementById("photo-con");
     photoCon.innerHTML = "";
-    if (!data || Object.keys(data).length === 0) {
+
+    // let hasPhoto = false;
+    // //取得所有的鍵，就是搜尋的字
+    // for(let i = 0; i<myKeys.length(); i++){
+    //   if(data[myKeys[i]].length()>0){
+    //     hasPhoto = true;
+    //     break;
+    //   }
+    // }
+
+    if (!data) {
       afterSearch.innerHTML = "無搜尋結果";
       return;
     }
-    //取得所有的鍵，就是搜尋的字
     const myKeys = Object.keys(data);
-
+    let hasPhoto = false;
     for (let i = 0; i < myKeys.length; i++) {
       let char = myKeys[i]; //梅
       let photos = data[char]; //梅的所有照片
@@ -173,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // 為什麼print it 需要 info?
         // 我覺得可以把胎放到zoom in
         // id 可以叫做 info
+        hasPhoto = true;
 
         img.addEventListener("click", function () {
           photo.char = char;
@@ -181,6 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // console.log(data);
         // console.log(photo.path);
       }
+    }
+    if (!hasPhoto) {
+      photoCon.innerHTML = "無搜尋結果";
     }
   }
 
