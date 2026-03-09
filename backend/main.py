@@ -1,11 +1,15 @@
 from fastapi import FastAPI
-from table import (
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+
+from .table import (
     calligrapher, 
     script, 
     errtype,
     creation_dict
 )
-from crud import search_calligraphy
+from .crud import search_calligraphy
 from pydantic import BaseModel
 
 class SearchRequest (BaseModel):
@@ -25,6 +29,20 @@ class creation (BaseModel):
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500"],  # 前端地址
+    allow_methods=["*"],      # 允許 GET, POST, OPTIONS ...
+    allow_headers=["*"],
+    allow_credentials=True,
+)
+
+
+BASE_DIR = Path(__file__).parent.resolve()  # backend/
+IMAGE_DIR = BASE_DIR.parent / "image"      # ../image → project_root/image
+
+app.mount("/static", StaticFiles(directory=IMAGE_DIR), name="static")
 
 #test api
 @app.get('/') 
@@ -55,7 +73,7 @@ def search(request : SearchRequest):
                     char_data = character(
                         author = row["author"], 
                         font = row["font"], 
-                        path = row["path"], 
+                        path = f"/static/{Path(row['path']).name}",
                         creation = row["creation"]
                         ).model_dump()
                     return_data[char].append(char_data)
