@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   const searchBox = document.querySelector(".inputbox");
   const authorCheckbox = document.querySelectorAll(".author");
@@ -14,6 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
       search();
     }
   });
+  //英轉中
+  const calligrapher ={
+    "WangXiZhi": "王羲之",
+    "MiFu": "米芾",
+    "SuShi": "蘇軾",
+    "LiSi": "李斯",
+    "DengShiru": "鄧石如",
+    "Henry": "曾子恆",
+    "Paul": "陳葆謙"
+  }
+  const script = {
+    "regular": "楷書",
+    "running": "行書",
+    "smallseal": "小篆",
+    "clerical": "隸書",
+    "cursive": "草書",
+    "hardpen": "硬筆書法"
+  }
 
   //查詢的字轉陣列
   function getChar() {
@@ -146,10 +165,10 @@ document.addEventListener("DOMContentLoaded", function () {
           char +
           "</p>" +
           "<p>" +
-          photo.author +
+          calligrapher[photo.author] +
           "</p>" +
           "<p>" +
-          photo.font +
+          script[photo.font] +
           "</p>";
 
         div.appendChild(img);
