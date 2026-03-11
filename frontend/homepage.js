@@ -76,15 +76,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //來搜吧
   function search() {
-    initialPage.style.display = "none";
-    // pull input-sys up
-    const inputsys = document.getElementById("input-sys");
-    inputsys.classList.add("search");
-
     //有輸入才開始搜尋中
     if (searchBox.value.trim() === "") {
       return;
     }
+    initialPage.style.display = "none";
+    // pull input-sys up
+    const inputsys = document.getElementById("input-sys");
+    inputsys.classList.add("search");
 
     //word1,2,3...
     //word123.innerHTML = "";
