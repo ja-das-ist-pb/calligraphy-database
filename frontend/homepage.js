@@ -158,21 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // test
         console.log("photo ok");
 
-        const info = document.createElement("div");
-        info.innerHTML =
-          "<p>" +
-          char +
-          "</p>" +
-          "<p>" +
-          calligrapher[photo.author] +
-          "</p>" +
-          "<p>" +
-          script[photo.font] +
-          "</p>";
-
         div.appendChild(img);
-        div.appendChild(info);
-
         photoCon.appendChild(div);
 
         // 為什麼print it 需要 info?
@@ -196,6 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //放大特寫
   function zoomIn(photo) {
     closeUp.style.display = "block";
+
     closeUp.innerHTML =
       "<div class='close-up-bgd'></div>" +
       "<div class='close-up-content'>" +
@@ -207,10 +194,10 @@ document.addEventListener("DOMContentLoaded", function () {
       photo.char +
       "</h3>" +
       "<p>" +
-      photo.author +
+      calligrapher[photo.author] +
       "</p>" +
       "<p>" +
-      photo.font +
+      script[photo.font] +
       "</p>" +
       "</div>";
     const bgd = closeUp.querySelector(".close-up-bgd");
