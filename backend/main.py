@@ -55,10 +55,8 @@ def search(request : SearchRequest):
 
     type_ = data.get("search_type")
     chars = data.get("char")
-    authors = (None if data.get("author") is None
-               else [calligrapher[au] for au in data.get("author")])
-    fonts = (None if data.get("font") is None
-             else [script[f] for f in data.get("font")])
+    authors = [calligrapher[a] for a in data["author"]] or None
+    fonts = [script[f] for f in data["font"]] or None
     # return data
     return_data = {}
     

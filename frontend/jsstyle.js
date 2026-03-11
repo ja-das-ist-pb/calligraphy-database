@@ -27,25 +27,27 @@ filterHeader.addEventListener("click", () => {
 
 // 手風琴 radio 可再次點擊取消
 let last = null;
-document.querySelectorAll('.accordion-item input[type="radio"]').forEach(radio => {
-  radio.addEventListener('click', function () {
-    if (last === this) {
-      this.checked = false;
-      last = null;
-    } else {
-      last = this;
-    }
+document
+  .querySelectorAll('.accordion-item input[type="radio"]')
+  .forEach((radio) => {
+    radio.addEventListener("click", function () {
+      if (last === this) {
+        this.checked = false;
+        last = null;
+      } else {
+        last = this;
+      }
+    });
   });
-});
 
 // 滑鼠離開整個 filter → 收回、清空手風琴
 filter.addEventListener("mouseleave", () => {
   filter.classList.remove("filter-open"); // 收回整個 filter
-  document.querySelectorAll('.acc-title input[type="radio"]')
-          .forEach(r => r.checked = false);  // 清空 radio
+  document
+    .querySelectorAll('.accordion-item input[type="radio"]')
+    .forEach((r) => (r.checked = false)); // 清空 radio
   last = null; // 重置 last
 });
-
 
 // // 點擊 filter
 // filter_btn.addEventListener("click", () => {

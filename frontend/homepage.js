@@ -1,8 +1,7 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   const searchBox = document.querySelector(".inputbox");
-  const authorCheckbox = document.querySelectorAll(".author");
-  const fontCheckbox = document.querySelectorAll(".font");
+  const authorCheckbox = document.querySelectorAll('input[name="author"]');
+  const fontCheckbox = document.querySelectorAll('input[name="font"]');
   const initialPage = document.getElementById("initial-page");
   const afterSearch = document.getElementById("after-search");
   const closeUp = document.getElementById("close-up");
@@ -16,23 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   //英轉中
-  const calligrapher ={
-    "WangXiZhi": "王羲之",
-    "MiFu": "米芾",
-    "SuShi": "蘇軾",
-    "LiSi": "李斯",
-    "DengShiru": "鄧石如",
-    "Henry": "曾子恆",
-    "Paul": "陳葆謙"
-  }
+  const calligrapher = {
+    WangXiZhi: "王羲之",
+    MiFu: "米芾",
+    SuShi: "蘇軾",
+    LiSi: "李斯",
+    DengShiru: "鄧石如",
+    Henry: "曾子恆",
+    Paul: "陳葆謙",
+  };
   const script = {
-    "regular": "楷書",
-    "running": "行書",
-    "smallseal": "小篆",
-    "clerical": "隸書",
-    "cursive": "草書",
-    "hardpen": "硬筆書法"
-  }
+    regular: "楷書",
+    running: "行書",
+    smallseal: "小篆",
+    clerical: "隸書",
+    cursive: "草書",
+    hardpen: "硬筆書法",
+  };
 
   //查詢的字轉陣列
   function getChar() {
@@ -99,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const requestData = collectData();
+    console.log(requestData);
     message.innerText = "搜尋中，請稍後......";
     fetch("http://127.0.0.1:8000/search-calligraphy", {
       method: "POST",
@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "<div class='close-up-bgd'></div>" +
       "<div class='close-up-content'>" +
       "<img src='" +
+      "http://127.0.0.1:8000" +
       photo.path +
       "'>" +
       "<h3>" +
