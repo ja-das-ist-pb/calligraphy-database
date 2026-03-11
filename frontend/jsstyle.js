@@ -41,13 +41,24 @@ document
   });
 
 // 滑鼠離開整個 filter → 收回、清空手風琴
-filter.addEventListener("mouseleave", () => {
-  filter.classList.remove("filter-open"); // 收回整個 filter
-  document
-    .querySelectorAll('.accordion-item input[type="radio"]')
-    .forEach((r) => (r.checked = false)); // 清空 radio
-  last = null; // 重置 last
+document.addEventListener("click", (e) => {
+  if (!filter.contains(e.target)) {
+    filter.classList.remove("filter-open");
+
+    document
+      .querySelectorAll('.accordion-item input[type="radio"]')
+      .forEach((r) => (r.checked = false));
+
+    last = null;
+  }
 });
+// filter.addEventListener("mouseleave", () => {
+//   filter.classList.remove("filter-open"); // 收回整個 filter
+//   document
+//     .querySelectorAll('.accordion-item input[type="radio"]')
+//     .forEach((r) => (r.checked = false)); // 清空 radio
+//   last = null; // 重置 last
+// });
 
 // // 點擊 filter
 // filter_btn.addEventListener("click", () => {

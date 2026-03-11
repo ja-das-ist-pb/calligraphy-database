@@ -18,7 +18,7 @@ body {
   background: none;
   border-color: #f2ebde;
   border: none;
-  padding: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -98,15 +98,16 @@ body {
   overflow: hidden;
   top: -85%;
   left: 96.75%;
+  z-index: 9;
 
   width: 2.8rem;
   transition: width 0.25s ease;
 }
 
 /* hover → 橫向展開 */
-#filter:hover {
+/* #filter:hover {
   width: 7rem;
-}
+} */
 
 /* ===== Header ===== */
 
@@ -130,7 +131,7 @@ body {
 }
 
 /* hover 時顯示文字 */
-#filter:hover .filter-text {
+#filter.filter-open .filter-text {
   opacity: 1;
 }
 
@@ -147,6 +148,9 @@ body {
 #filter.filter-open #filter-body {
   max-height: 30rem; /* 給足夠高度即可 */
   padding-bottom: 0.2rem;
+}
+#filter.filter-open {
+  width: 7rem;
 }
 
 /* ===== Accordion 區塊 ===== */
@@ -235,7 +239,6 @@ body {
 .inputbox:focus {
   outline: none;
   border: none;
-  padding: none;
 }
 .inputbox:focus::placeholder {
   opacity: 0;
@@ -323,7 +326,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9;
+  z-index: 8;
 }
 
 .close-up-bgd {
@@ -345,4 +348,8 @@ body {
 .close-up-content img {
   max-width: 80vw;
   max-height: 80vh;
+}
+
+#after-search {
+  z-index: 7;
 }
