@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const searchBox = document.querySelector(".inputbox");
-  const authorCheckbox = document.querySelectorAll('input[name="author"]');
-  const fontCheckbox = document.querySelectorAll('input[name="font"]');
+  const authorCheckbox = document.querySelectorAll(".author");
+  const fontCheckbox = document.querySelectorAll(".font");
   const initialPage = document.getElementById("initial-page");
   const afterSearch = document.getElementById("after-search");
   const closeUp = document.getElementById("close-up");
@@ -15,23 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   //英轉中
-  const calligrapher = {
-    WangXiZhi: "王羲之",
-    MiFu: "米芾",
-    SuShi: "蘇軾",
-    LiSi: "李斯",
-    DengShiru: "鄧石如",
-    Henry: "曾子恆",
-    Paul: "陳葆謙",
-  };
+  const calligrapher ={
+    "WangXiZhi": "王羲之",
+    "MiFu": "米芾",
+    "SuShi": "蘇軾",
+    "LiSi": "李斯",
+    "DengShiru": "鄧石如",
+    "Henry": "曾子恆",
+    "Paul": "陳葆謙"
+  }
   const script = {
-    regular: "楷書",
-    running: "行書",
-    smallseal: "小篆",
-    clerical: "隸書",
-    cursive: "草書",
-    hardpen: "硬筆書法",
-  };
+    "regular": "楷書",
+    "running": "行書",
+    "smallseal": "小篆",
+    "clerical": "隸書",
+    "cursive": "草書",
+    "hardpen": "硬筆書法"
+  }
 
   //查詢的字轉陣列
   function getChar() {
@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // pull input-sys up
     const inputsys = document.getElementById("input-sys");
     inputsys.classList.add("search");
-
     //word1,2,3...
     //word123.innerHTML = "";
     const words = searchBox.value.trim();
@@ -137,14 +136,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // }
 
     if (!data) {
-      afterSearch.innerHTML = "無搜尋結果";
+      afterSearch.innerHTML = "很抱歉，我們沒有您搜尋的字:(";
       return;
     }
     const myKeys = Object.keys(data);
     let hasPhoto = false;
+    let noPhoto = [];
     for (let i = 0; i < myKeys.length; i++) {
       let char = myKeys[i]; //梅
       let photos = data[char]; //梅的所有照片
+
+      if(!photos || photos.length === 0) {
+        noPhoto.push(char);
+        continue;
+      }
+      
       for (let j = 0; j < photos.length; j++) {
         const photo = photos[j];
 
@@ -158,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // test
         console.log("photo ok");
 
+        
         div.appendChild(img);
         photoCon.appendChild(div);
 
@@ -174,8 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // console.log(photo.path);
       }
     }
-    if (!hasPhoto) {
-      photoCon.innerHTML = "無搜尋結果";
+    for(let i = 0; i<noPhoto.length; i++){
+      const sorry = document.createElement("div");
+      sorry.innerText = "很抱歉，我們目前沒有「" + noPhoto[i] + "」字";
+      photoCon.appendChild(sorry);
     }
   }
 
@@ -186,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closeUp.innerHTML =
       "<div class='close-up-bgd'></div>" +
       "<div class='close-up-content'>" +
-      "<img src='" +
+       "<img src='" +
       "http://127.0.0.1:8000" +
       photo.path +
       "'>" +
