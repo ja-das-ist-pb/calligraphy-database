@@ -149,16 +149,17 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < myKeys.length; i++) {
       let char = myKeys[i]; //梅
       let photos = data[char]; //梅的所有照片
-      //小小字
-      const word123 = document.createElement("p");
-      word123.className = "word123";
-      word123.innerText = char;
-      wordCon.appendChild(word123);
 
       if(!photos || photos.length === 0) {
         noPhoto.push(char);
         continue;
       }
+
+      //小小字
+      const word123 = document.createElement("div");
+      word123.className = "word123";
+      word123.innerHTML = "<p>" + char + "</p>";
+      wordCon.appendChild(word123);
       
       for (let j = 0; j < photos.length; j++) {
         const photo = photos[j];
