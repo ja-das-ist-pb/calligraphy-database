@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const photoCon = document.getElementById("photo-con");
     const wordCon = document.getElementById("word-con");
     photoCon.innerHTML = "";
-
+    wordCon.innerHTML = "";
     // let hasPhoto = false;
     // //取得所有的鍵，就是搜尋的字
     // for(let i = 0; i<myKeys.length(); i++){
