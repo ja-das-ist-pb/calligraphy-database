@@ -87,15 +87,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const hidden_space = document.getElementById("hidden-space");
     inputsys.classList.add("search");
     hidden_space.classList.add("show");
-    //word1,2,3...
-    //word123.innerHTML = "";
+    
     const words = searchBox.value.trim();
     const chars = words.split("");
     for (let i = 0; i < chars.length; i++) {
       const div = document.createElement("div");
       div.className = "word" + (i + 1);
       div.innerHTML = chars[i];
-      //word123.appendChild(div);
     }
 
     const requestData = collectData();
@@ -127,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //有點亂:(  整理一下: data:整個物件、myKeys:搜尋的字、char:單個字、photos:這個字的所有圖片陣列、photo:圖片資料
   function printIt(data) {
     const photoCon = document.getElementById("photo-con");
+    const wordCon = document.getElementById("word-con");
     photoCon.innerHTML = "";
 
     // let hasPhoto = false;
@@ -150,7 +149,12 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < myKeys.length; i++) {
       let char = myKeys[i]; //梅
       let photos = data[char]; //梅的所有照片
-
+      //小小字
+      const word123 = document.createElement("div");
+      word123.className = "word123";
+      word123.innerText = char;
+      wordCon.appendChild(word123);
+      
       if(!photos || photos.length === 0) {
         noPhoto.push(char);
         continue;
