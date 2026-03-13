@@ -150,9 +150,9 @@ document.addEventListener("DOMContentLoaded", function () {
       let char = myKeys[i]; //梅
       let photos = data[char]; //梅的所有照片
       //小小字
-      const word123 = document.createElement("div");
+      const word123 = document.createElement("p");
       word123.className = "word123";
-      word123.innerHTML = "<p>" + char + "</p>";
+      word123.innerText = char;
       wordCon.appendChild(word123);
 
       if(!photos || photos.length === 0) {
