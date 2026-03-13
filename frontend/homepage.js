@@ -152,9 +152,9 @@ document.addEventListener("DOMContentLoaded", function () {
       //小小字
       const word123 = document.createElement("div");
       word123.className = "word123";
-      word123.innerText = char;
+      word123.innerHTML = "<p>" + char + "</p>";
       wordCon.appendChild(word123);
-      
+
       if(!photos || photos.length === 0) {
         noPhoto.push(char);
         continue;
