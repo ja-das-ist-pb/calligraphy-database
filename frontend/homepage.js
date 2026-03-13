@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const searchBox = document.querySelector(".inputbox");
-  const authorCheckbox = document.querySelectorAll(".author");
-  const fontCheckbox = document.querySelectorAll(".font");
+  const authorCheckbox = document.querySelectorAll('input[name="author"]');
+  const fontCheckbox = document.querySelectorAll('input[name="font"]');
   const initialPage = document.getElementById("initial-page");
   const afterSearch = document.getElementById("after-search");
   const closeUp = document.getElementById("close-up");
   const message = document.getElementById("message");
+  const sorry = document.getElementById("sorry");
 
   console.log(document.getElementById("photo-con"));
 
@@ -83,7 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
     initialPage.style.display = "none";
     // pull input-sys up
     const inputsys = document.getElementById("input-sys");
+    const hidden_space = document.getElementById("hidden-space");
     inputsys.classList.add("search");
+    hidden_space.classList.add("show");
     //word1,2,3...
     //word123.innerHTML = "";
     const words = searchBox.value.trim();
@@ -139,9 +142,11 @@ document.addEventListener("DOMContentLoaded", function () {
       afterSearch.innerHTML = "很抱歉，我們沒有您搜尋的字:(";
       return;
     }
+
     const myKeys = Object.keys(data);
     let hasPhoto = false;
     let noPhoto = [];
+
     for (let i = 0; i < myKeys.length; i++) {
       let char = myKeys[i]; //梅
       let photos = data[char]; //梅的所有照片
@@ -168,24 +173,22 @@ document.addEventListener("DOMContentLoaded", function () {
         div.appendChild(img);
         photoCon.appendChild(div);
 
-        // 為什麼print it 需要 info?
-        // 我覺得可以把胎放到zoom in
-        // id 可以叫做 info
         hasPhoto = true;
 
         img.addEventListener("click", function () {
           photo.char = char;
           zoomIn(photo);
         });
-        // console.log(data);
-        // console.log(photo.path);
       }
     }
+
     for(let i = 0; i<noPhoto.length; i++){
-      const sorry = document.createElement("div");
-      sorry.innerText = "很抱歉，我們目前沒有「" + noPhoto[i] + "」字";
-      photoCon.appendChild(sorry);
+      const sorryele = document.createElement("sorry");
+      sorryele.innerText = "很抱歉，我們目前沒有「" + noPhoto[i] + "」字\n";
+      sorry.appendChild(sorryele);
     }
+
+    message.innerText = "";
   }
 
   //放大特寫
@@ -195,19 +198,10 @@ document.addEventListener("DOMContentLoaded", function () {
     closeUp.innerHTML =
       "<div class='close-up-bgd'></div>" +
       "<div class='close-up-content'>" +
-       "<img src='" +
-      "http://127.0.0.1:8000" +
-      photo.path +
-      "'>" +
-      "<h3>" +
-      photo.char +
-      "</h3>" +
-      "<p>" +
-      calligrapher[photo.author] +
-      "</p>" +
-      "<p>" +
-      script[photo.font] +
-      "</p>" +
+      "<img src='" +"http://127.0.0.1:8000"+photo.path+"'>" +
+      "<h3 style='text-align: center;'>"+photo.char +"</h3>" + 
+      "<p style='text-align: center;'>"+calligrapher[photo.author]+"</p>" +
+      "<p style='text-align: center;'>"+script[photo.font]+"</p>" +
       "</div>";
     const bgd = closeUp.querySelector(".close-up-bgd");
     bgd.addEventListener("click", closeIt);
