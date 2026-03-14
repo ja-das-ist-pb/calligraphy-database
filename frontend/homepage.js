@@ -154,12 +154,14 @@ document.addEventListener("DOMContentLoaded", function () {
         noPhoto.push(char);
         continue;
       }
-
+      //區塊
+      const block = document.createElement("div");
+      block.className = "block666";
       //小小字
       const word123 = document.createElement("div");
       word123.className = "word123";
       word123.innerHTML = "<p>" + char + "</p>";
-      wordCon.appendChild(word123);
+      block.appendChild(word123);
       
       for (let j = 0; j < photos.length; j++) {
         const photo = photos[j];
@@ -176,7 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         
         div.appendChild(img);
-        photoCon.appendChild(div);
+        //photoCon.appendChild(div);
+        block.appendChild(div);
 
         hasPhoto = true;
 
@@ -185,6 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
           zoomIn(photo);
         });
       }
+      photoCon.appendChild(block);
     }
 
     for(let i = 0; i<noPhoto.length; i++){
