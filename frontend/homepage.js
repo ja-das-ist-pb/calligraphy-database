@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeUp = document.getElementById("close-up");
   const message = document.getElementById("message");
   const sorry = document.getElementById("sorry");
+  const BASE_URL = "http://192.168.0.69:3333";
 
   console.log(document.getElementById("photo-con"));
 
@@ -99,7 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const requestData = collectData();
     console.log(requestData);
     message.innerText = "搜尋中，請稍後......";
-    fetch("http://127.0.0.1:8000/search-calligraphy", {
+
+    
+    fetch(`${BASE_URL}/search-calligraphy`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // 告訴後端，我傳 JSON，而且我JJ很大
@@ -128,14 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const wordCon = document.getElementById("word-con");
     photoCon.innerHTML = "";
     wordCon.innerHTML = "";
-    // let hasPhoto = false;
-    // //取得所有的鍵，就是搜尋的字
-    // for(let i = 0; i<myKeys.length(); i++){
-    //   if(data[myKeys[i]].length()>0){
-    //     hasPhoto = true;
-    //     break;
-    //   }
-    // }
 
     if (!data) {
       afterSearch.innerHTML = "很抱歉，我們沒有您搜尋的字:(";
@@ -170,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div.className = "photo";
 
         const img = document.createElement("img");
-        img.src = "http://127.0.0.1:8000" + photo.path;
+        img.src = BASE_URL + photo.path;
         img.className = "photos";
 
         // test
@@ -192,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     for(let i = 0; i<noPhoto.length; i++){
-      const sorryele = document.createElement("sorry");
+      const sorryele = document.createElement("p");
       sorryele.innerText = "很抱歉，我們目前沒有「" + noPhoto[i] + "」字\n";
       sorry.appendChild(sorryele);
     }
@@ -207,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closeUp.innerHTML =
       "<div class='close-up-bgd'></div>" +
       "<div class='close-up-content'>" +
-      "<img src='" +"http://127.0.0.1:8000"+photo.path+"'>" +
+      "<img src='" +BASE_URL+photo.path+"'>" +
       "<h3 style='text-align: center;'>"+photo.char +"</h3>" + 
       "<p style='text-align: center;'>"+calligrapher[photo.author]+"</p>" +
       "<p style='text-align: center;'>"+script[photo.font]+"</p>" +

@@ -41,11 +41,13 @@ app.add_middleware(
 
 BASE_DIR = Path(__file__).parent.resolve()  # backend/
 IMAGE_DIR = BASE_DIR.parent / "image"      # ../image → project_root/image
+FIGURE_DIR = BASE_DIR.parent / "figure"
 
-app.mount("/static", StaticFiles(directory=IMAGE_DIR), name="static")
+app.mount("/home", StaticFiles(directory="frontend", html=True), name="frontend")
+app.mount("/static", StaticFiles(directory=IMAGE_DIR), name="image")
 
 #test api
-@app.get('/') 
+@app.get('/apitest') 
 def root():
     return {"message" : "backend working"}
 
@@ -81,4 +83,4 @@ def search(request : SearchRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host = "127.0.0.1", port = 8000, reload=True)
+    uvicorn.run("main:app", host = "0.0.0.0", port = 3333, reload=True)
