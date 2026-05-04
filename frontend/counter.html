@@ -4,17 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>網站計數器</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="counter.css"></link>
   </head>
   <body>
-    <div class="title">造訪人數統計</div>
-    <ul>
-      <li>今日人數： <span id="today"></span> 人</li>
-      <li>昨日人數： <span id="yesterday"></span> 人</li>
-      <li>本週人數： <span id="week"></span> 人</li>
-      <li>本月人數： <span id="month"></span> 人</li>
-      <li>今年人數： <span id="year"></span> 人</li>
-      <li>線上人數： <span id="online"></span> 人</li>
-      <li>總瀏覽數： <span id="total"></span> 人</li>
-    </ul>
+
+    <!-- side bar code -->
+    <aside id="side-bar">
+      <button id="mainmenu" type="button">
+        <span class="mmpart"></span>
+        <span class="mmpart"></span>
+        <span class="mmpart"></span>
+        <!-- mm stands for main menu -->
+      </button>
+      <nav id="menu">
+        <ul>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href=""></a>書法作品賞析</li>
+          <li><a href=""></a>書法入門教學</li>
+          <li><a href="AboutUs.html">開發者介紹</a></li>
+          <li><a href="counter.html"></a>網站計數器</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="title">造訪人數統計</div>
+      <div class="container">
+      <div>今日人數： <p id="today"></p> 人</div>
+      <div>昨日人數： <p id="yesterday"></p> 人</div>
+      <div>本週人數： <p id="week"></p> 人</div>
+      <div>本月人數： <p id="month"></p> 人</div>
+      <div>今年人數： <p id="year"></p> 人</div>
+      <div>線上人數： <p id="online"></p> 人</div>
+      <div>總瀏覽數： <p id="total"></p> 人</div>
+    </div>
+
+    <script src="counter.js"></script>
   </body>
 </html>
