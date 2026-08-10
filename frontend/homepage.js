@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeUp = document.getElementById("close-up");
   const message = document.getElementById("message");
   const sorry = document.getElementById("sorry");
-  const BASE_URL = "http://192.168.0.69:3333";
+  const BASE_URL = "";
 
   console.log(document.getElementById("photo-con"));
 
