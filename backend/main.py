@@ -43,7 +43,7 @@ BASE_DIR = Path(__file__).parent.resolve()  # backend/
 IMAGE_DIR = BASE_DIR.parent / "image"      # ../image → project_root/image
 FIGURE_DIR = BASE_DIR.parent / "figure"
 
-app.mount("/home", StaticFiles(directory="frontend", html=True), name="frontend")
+
 app.mount("/static", StaticFiles(directory=IMAGE_DIR), name="image")
 
 #test api
@@ -80,6 +80,8 @@ def search(request : SearchRequest):
 
     
     return return_data
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn
