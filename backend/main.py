@@ -42,6 +42,7 @@ app.add_middleware(
 BASE_DIR = Path(__file__).parent.resolve()  # backend/
 IMAGE_DIR = BASE_DIR.parent / "image"      # ../image → project_root/image
 FIGURE_DIR = BASE_DIR.parent / "figure"
+FRONTEND_DIR = BASE_DIR.parent / "frontend"
 
 
 app.mount("/static", StaticFiles(directory=IMAGE_DIR), name="image")
@@ -81,7 +82,7 @@ def search(request : SearchRequest):
     
     return return_data
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn
