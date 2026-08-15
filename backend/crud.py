@@ -1,13 +1,15 @@
 from . import database
 import sqlite3
+from pathlib import Path
 
+cally_db_path = Path(__file__).resolve().parent / "database" / "cally.db"
 
 def search_calligraphy(
     char : str, 
     author : list | None = None, 
     font : list | None = None
     ):
-    conn = database.get_db()
+    conn = database.get_db(cally_db_path)
 
     exe = """
     SELECT *

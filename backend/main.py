@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
-
 from .table import (
     calligrapher, 
     script, 
@@ -10,22 +9,8 @@ from .table import (
     creation_dict
 )
 from .crud import search_calligraphy
-from pydantic import BaseModel
-
-class SearchRequest (BaseModel):
-    search_type : str
-    char : list[str]
-    author : list[str] | None = None
-    font : list[str] | None = None
-
-class character (BaseModel):
-    author : str
-    font : str
-    path : str
-    creation : str | None
-
-class creation (BaseModel):
-    ...
+from .crud_visit import visit_web, get_visit_data
+from .model import SearchRequest, character
 
 
 app = FastAPI()
@@ -82,8 +67,17 @@ def search(request : SearchRequest):
     
     return return_data
 
+@app.post("/visit")
+def visit():
+    visit_web()
+    return {"status" : "OK"}
+
+@app.get("/visit/status")
+def visit_count():
+    return get_visit_data()
+
 app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host = "0.0.0.0", port = 3333, reload=True)
+    uvicorn.run("main:app", host = "0.0.0.0", port = 3333, reload=False)
