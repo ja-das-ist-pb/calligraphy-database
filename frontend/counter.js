@@ -15,6 +15,9 @@ async function search() {
     updateele.forEach(function(ele){
         ele.innerText = data.string(ele);
     })
+
+    // test
+    console.log(data)
 }
 
 search();
