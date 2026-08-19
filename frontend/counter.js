@@ -12,7 +12,7 @@ const updateele = [today, yesterday, week, month, year, total];
 async function search() {
     try {
         const response = await fetch(`${BASE_URL}/visit/status`);
-        const data = await JSON.parse(response.json());
+        const data = await response.json()
         updateele.forEach(function(ele){
             ele.innerText = data[ele.id] ?? "---";
         })
