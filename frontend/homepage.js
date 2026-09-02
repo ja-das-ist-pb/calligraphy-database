@@ -184,6 +184,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     for(let i = 0; i<noPhoto.length; i++){
+      // 1. clear sorry
+      sorry.replaceChildren();
+
+      // 2. add new sorry message
       const sorryele = document.createElement("p");
       sorryele.innerText = "很抱歉，我們目前沒有「" + noPhoto[i] + "」字\n";
       sorry.appendChild(sorryele);
