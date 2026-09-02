@@ -157,6 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
       word123.className = "word123";
       word123.innerHTML = "<p>" + char + "</p>";
       block.appendChild(word123);
+      const charphotos = document.createElement("div");
       
       for (let j = 0; j < photos.length; j++) {
         const photo = photos[j];
@@ -167,14 +168,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const img = document.createElement("img");
         img.src = BASE_URL + photo.path;
         img.className = "photos";
-
-        // test
-        console.log("photo ok");
-
         
         div.appendChild(img);
-        //photoCon.appendChild(div);
-        block.appendChild(div);
+        charphotos.appendChild(div);
 
         hasPhoto = true;
 
@@ -183,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
           zoomIn(photo);
         });
       }
+      block.appendChild(charphotos);
       photoCon.appendChild(block);
     }
 
