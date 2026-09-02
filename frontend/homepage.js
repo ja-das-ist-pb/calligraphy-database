@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       word123.innerHTML = "<p>" + char + "</p>";
       block.appendChild(word123);
       const charphotos = document.createElement("div");
+      charphotos.className = "charphotos";
       
       for (let j = 0; j < photos.length; j++) {
         const photo = photos[j];
