@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       for (let j = 0; j < photos.length; j++) {
         const photo = photos[j];
-
+        
         const div = document.createElement("div");
         div.className = "photo";
 
