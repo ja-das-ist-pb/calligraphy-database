@@ -278,6 +278,7 @@ body {
 .block666 {
   display: flex;
   flex-direction: column;
+  gap: 3%;
 }
 
 .charphotos {
