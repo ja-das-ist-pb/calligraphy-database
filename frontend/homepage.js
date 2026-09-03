@@ -140,6 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const myKeys = Object.keys(data);
     let hasPhoto = false;
     let noPhoto = [];
+    // 1. clear sorry
+    sorry.replaceChildren();
 
     for (let i = 0; i < myKeys.length; i++) {
       let char = myKeys[i]; //梅
@@ -183,8 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
       block.appendChild(charphotos);
       photoCon.appendChild(block);
     }
-    // 1. clear sorry
-      sorry.replaceChildren();
+    
     for(let i = 0; i<noPhoto.length; i++){
       
 
