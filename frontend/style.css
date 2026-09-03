@@ -273,6 +273,7 @@ body {
 #photo-con {
   display: flex;
   flex-direction: column;
+  gap: 3%;
 }
 
 .block666 {
