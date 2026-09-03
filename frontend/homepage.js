@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       for (let j = 0; j < photos.length; j++) {
         const photo = photos[j];
-        
+
         const div = document.createElement("div");
         div.className = "photo";
 
@@ -183,10 +183,10 @@ document.addEventListener("DOMContentLoaded", function () {
       block.appendChild(charphotos);
       photoCon.appendChild(block);
     }
-
-    for(let i = 0; i<noPhoto.length; i++){
-      // 1. clear sorry
+    // 1. clear sorry
       sorry.replaceChildren();
+    for(let i = 0; i<noPhoto.length; i++){
+      
 
       // 2. add new sorry message
       const sorryele = document.createElement("p");
@@ -194,7 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
       sorry.appendChild(sorryele);
     }
 
-    message.innerText = "";
   }
 
   //放大特寫
