@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pathlib import Path
 from .table import (
     calligrapher, 
@@ -28,9 +29,14 @@ BASE_DIR = Path(__file__).parent.resolve()  # backend/
 IMAGE_DIR = BASE_DIR.parent / "image"      # ../image → project_root/image
 FIGURE_DIR = BASE_DIR.parent / "figure"
 FRONTEND_DIR = BASE_DIR.parent / "frontend"
+ADS_FILE = BASE_DIR.parent / "Ads.txt"
 
-
+# app.mount("/ads.txt", StaticFiles=BASE_DIR.parent, name="ads")
 app.mount("/static", StaticFiles(directory=IMAGE_DIR), name="image")
+
+@app.get("/ads.txt")
+def getAds():
+    return FileResponse(ADS_FILE)
 
 #test api
 @app.get('/apitest') 
