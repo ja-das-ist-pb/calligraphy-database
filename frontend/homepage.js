@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const wordCon = document.getElementById("word-con");
     photoCon.innerHTML = "";
     wordCon.innerHTML = "";
+    message.innerText = "";
 
     if (!data) {
       afterSearch.innerHTML = "很抱歉，我們沒有您搜尋的字:(";
@@ -186,14 +187,18 @@ document.addEventListener("DOMContentLoaded", function () {
       photoCon.appendChild(block);
     }
     
-    for(let i = 0; i<noPhoto.length; i++){
-      
-
-      // 2. add new sorry message
+    if (noPhoto.length > 0) {
       const sorryele = document.createElement("p");
-      sorryele.innerText = "很抱歉，我們目前沒有「" + noPhoto[i] + "」字\n";
+      let sorryeleText = "";
+      sorryeleText += "很抱歉，我們目前沒有";
+      for(let i = 0; i<noPhoto.length; i++){
+        // 2. add new sorry message
+        sorryeleText += "「"+ noPhoto[i] + "」";
+      }
+      sorryele.innerText = sorryeleText;
       sorry.appendChild(sorryele);
     }
+    
 
   }
 
